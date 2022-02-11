@@ -9,7 +9,10 @@ const createWin=()=>{
       nodeIntegration:true
     }
   })
-  mainWin.loadFile('index.html')
+  const isDev=process.env.NODE_ENV==='development'
+  const devView='http://127.0.0.1:7001'
+  const distView=`file://${path.join(__dirname,'../dist/index.html')}`
+  mainWin.loadFile(isDev?devView:distView)
 }
 
 app.whenReady().then(()=>{
