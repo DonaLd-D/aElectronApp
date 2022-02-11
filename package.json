@@ -1,0 +1,17 @@
+{
+  "name": "a_electron_app",
+  "version": "0.0.1",
+  "description": "a electron app",
+  "main": "./app/main/electron.js",
+  "scripts": {
+    "start:main": "electron ./app/main/electron.js",
+    "install:electron":"ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron yarn add electron"
+  },
+  "dependencies": {
+    "electron": "11.1.1"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "xianyv",
+  "license": "ISC"
+}
