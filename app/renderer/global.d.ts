@@ -8,6 +8,10 @@ declare module '*.png' {
   export default png;
 }
 
+declare module 'redux-logger'
+
+declare module 'rc-redux-model'
+
 declare interface Window {
   pdk: string;
 }

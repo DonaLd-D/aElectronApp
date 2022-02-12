@@ -1,5 +1,5 @@
 const path=require('path')
-const {app,BrowserWindow}=require('electron')
+const {app,BrowserWindow,ipcMain}=require('electron')
 
 const createWin=()=>{
   const mainWin=new BrowserWindow({
@@ -20,4 +20,9 @@ app.whenReady().then(()=>{
   app.on("activate",()=>{
     if(BrowserWindow.getAllWindows().length===0) createWin()
   })
+})
+
+const root_path=path.join(app.getAppPath(),'../')
+ipcMain.on('get-root-path',(e,arg)=>{
+  e.reply('res-root-path',root_path)
 })

@@ -1,5 +1,5 @@
 ## electron.js+react.js实践
-----
+
 ### 安装生产依赖包和开发依赖包
 - `yarn add`
 

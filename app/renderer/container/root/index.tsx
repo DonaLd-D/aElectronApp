@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './index.less'
 import { useHistory } from 'react-router'
 import {shell} from 'electron'
 import logo from '@assets/img/logo.png'
+import {useSelector,useDispatch} from 'react-redux'
 
 function Root(){
   const history=useHistory()
@@ -13,6 +14,27 @@ function Root(){
       shell.openExternal('https://github.com/tc39');
     }
   }
+
+  const dispatch=useDispatch()
+  const appName=useSelector((state:any)=>state.globalModel.appName)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      console.log('after .3s')
+      dispatch({
+        type:'globalModel/setStore',
+        payload:{
+          key:'appName',
+          values:'a_electron_app'
+        }
+      })
+    },300)
+  },[])
+
+  useEffect(()=>{
+    console.log('appName is:',appName)
+  },[appName])
+  
   return (
     <div styleName='root'>
       <div styleName='container'>
